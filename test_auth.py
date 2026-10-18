@@ -49,6 +49,24 @@ class AuthTests(unittest.TestCase):
             self.assertEqual(self.client.get(path).status_code, 404)
 
     @patch("app.discord_api")
+    def test_multiple_roles_and_removal(self, api):
+        self.app = create_app({"TESTING": True, "DISCORD_ROLE_ID": "1559163846541705226, 1527992363329519698"})
+        self.client = self.app.test_client()
+        self.authenticate()
+        for roles, status in [(["1559163846541705226"], 200),
+                              (["1527992363329519698"], 200),
+                              (["1559163846541705226", "1527992363329519698"], 200),
+                              (["999999999999999999"], 403), ([], 403)]:
+            with self.subTest(roles=roles):
+                api.return_value = {"roles": roles}
+                self.assertEqual(self.client.get("/manual/").status_code, status)
+
+    def test_invalid_role_settings(self):
+        for value in ("", ", ,", "123,invalid"):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                create_app({"DISCORD_ROLE_ID": value})
+
+    @patch("app.discord_api")
     def test_role_required_and_rechecked(self, api):
         self.authenticate()
         api.return_value = {"roles": ["1559163846541705226"]}

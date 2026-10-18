@@ -39,6 +39,9 @@ def create_app(overrides=None):
         config["BASE_URL"] = os.environ["RENDER_EXTERNAL_URL"]
     config["MANUAL_PATH"] = os.environ.get("MANUAL_PATH", str(ROOT / "private" / "manual.html"))
     config.update(overrides or {})
+    allowed_roles = {role.strip() for role in config["DISCORD_ROLE_ID"].split(",") if role.strip()}
+    if not allowed_roles or any(not role.isascii() or not role.isdigit() for role in allowed_roles):
+        raise ValueError("DISCORD_ROLE_ID must contain comma-separated numeric role IDs")
     base = config["BASE_URL"].rstrip("/")
     parsed = urlparse(base)
     if (parsed.scheme != "https" and not
@@ -106,7 +109,7 @@ def create_app(overrides=None):
             return page("Discordに接続できません。少し待って再度お試しください。", 503)
         except (URLError, TimeoutError, ValueError):
             return page("Discordに接続できません。少し待って再度お試しください。", 503)
-        if config["DISCORD_ROLE_ID"] not in member.get("roles", []):
+        if not allowed_roles.intersection(member.get("roles", [])):
             return page("閲覧に必要なロールがありません。ASTGの管理者に確認してください。", 403)
         content = Path(config["MANUAL_PATH"])
         if not content.exists():

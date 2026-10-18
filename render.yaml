@@ -18,6 +18,6 @@ services:
       - key: DISCORD_GUILD_ID
         value: "1520413994425385030"
       - key: DISCORD_ROLE_ID
-        value: "1559163846541705226"
+        value: "1559163846541705226,1527992363329519698"
       - key: MANUAL_PATH
         value: /etc/secrets/manual.html
