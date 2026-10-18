@@ -23,6 +23,8 @@ Live Serverでは認証は動きません。必ずPythonサーバーから開い
 
 ## 本文と本番公開
 
+Renderでの公開手順は [DEPLOY.md](DEPLOY.md) を参照。`render.yaml` に無料プランの設定を用意しています。
+
 本文は `private/manual.html` に保存し、Git管理から除外しています。別途バックアップしてください。
 新しい環境へのcloneだけでは本文は入りません。非公開の経路でサーバーに配置してください。
 公開される `manual/index.html` は移行案内のみです。

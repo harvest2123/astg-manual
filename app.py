@@ -34,6 +34,10 @@ def create_app(overrides=None):
         config.update(json.loads(local.read_text(encoding="utf-8-sig")))
     for key in config:
         config[key] = os.environ.get(key, config[key])
+    # Render supplies its HTTPS origin after assigning the service URL.
+    if os.environ.get("RENDER_EXTERNAL_URL") and not os.environ.get("BASE_URL"):
+        config["BASE_URL"] = os.environ["RENDER_EXTERNAL_URL"]
+    config["MANUAL_PATH"] = os.environ.get("MANUAL_PATH", str(ROOT / "private" / "manual.html"))
     config.update(overrides or {})
     base = config["BASE_URL"].rstrip("/")
     parsed = urlparse(base)
@@ -104,7 +108,7 @@ def create_app(overrides=None):
             return page("Discordに接続できません。少し待って再度お試しください。", 503)
         if config["DISCORD_ROLE_ID"] not in member.get("roles", []):
             return page("閲覧に必要なロールがありません。ASTGの管理者に確認してください。", 403)
-        content = ROOT / "private" / "manual.html"
+        content = Path(config["MANUAL_PATH"])
         if not content.exists():
             return page("教本を準備中です。管理者に確認してください。", 503)
         return content.read_text(encoding="utf-8")

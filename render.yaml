@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: astg-manual
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: HOST
+        value: 0.0.0.0
+      - key: DISCORD_CLIENT_ID
+        sync: false
+      - key: DISCORD_CLIENT_SECRET
+        sync: false
+      - key: DISCORD_GUILD_ID
+        value: "1520413994425385030"
+      - key: DISCORD_ROLE_ID
+        value: "1559163846541705226"
+      - key: MANUAL_PATH
+        value: /etc/secrets/manual.html
