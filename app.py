@@ -83,7 +83,7 @@ def create_app(overrides=None):
     def section(section):
         if section == "manual":
             return manual()
-        if section in ("training", "regulations", "exam"):
+        if section in ("training", "regulations", "exam", "command", "commander"):
             return (ROOT / section / "index.html").read_text(encoding="utf-8")
         return page("ページが見つかりません。", 404)
 
