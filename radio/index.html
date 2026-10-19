@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ASTGの無線通信マニュアル。通信の種類、交信例、ショートコードと用語を紹介します。">
+<title>無線通信について | ASTG</title>
+<style>
+:root{color-scheme:dark;--bg:#101720;--surface:#1b2735;--text:#e9f0f7;--muted:#afc0d0;--border:#324255;--accent:#8fd3ff;--soft:#223244}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.8 system-ui,'Segoe UI',sans-serif}main{max-width:900px;margin:auto;padding:32px 24px 64px}a{color:var(--accent)}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.back{display:inline-block;padding:7px 13px;border:1px solid var(--border);border-radius:8px;text-decoration:none;background:var(--surface)}header{margin:28px 0}.eyebrow{color:var(--muted);font-size:.8rem;letter-spacing:.12em}h1{font-size:clamp(28px,5vw,38px);margin:10px 0}h2{font-size:1.4rem;margin:0 0 16px}h3{font-size:1.1rem;margin-top:26px}p{margin:10px 0;color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}nav a{padding:5px 12px;border:1px solid var(--border);border-radius:20px;text-decoration:none;font-size:.9rem}section{margin:24px 0;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px}blockquote{margin:16px 0;padding:12px 18px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 6px 6px 0}blockquote p{color:var(--text)}dl{margin:20px 0 0}dt{font-weight:700;color:var(--accent);padding-top:18px;border-top:1px solid var(--border)}dd{margin:6px 0 18px;overflow-wrap:anywhere}.note{padding:12px 16px;background:var(--soft);border-radius:8px}footer{color:var(--muted);font-size:.82rem;margin-top:30px}@media(max-width:600px){main{padding:20px 14px 40px}section{padding:18px 14px}blockquote{padding:10px 13px}}
+</style>
+</head>
+<body><main>
+<a class="back" href="../">← ホームに戻る</a>
+<header><div class="eyebrow">ASTG RADIO COMMUNICATION MANUAL</div><h1>無線通信について</h1>
+<p>無線通信とは、部隊や上位組織、または味方同士で命令や状況をやり取りする通信手段のことをさします。いわゆる</p>
+<blockquote><p><strong>アルファ、こちらブラボー送れ<br>ブラボー、こちらアルファ。感明良好。送れ</strong></p></blockquote>
+<p>といった皆さんが想像するような軍事系の通信です。Robloxというゲームの特性上、このように無線を使う場面には滅多に遭遇しませんよね。そこで今回、我々ASTGは最低限の無線がとれるマニュアルを作成しました。</p></header>
+<nav aria-label="ページ内の目次"><a href="#types">無線通信の種類</a><a href="#codes">ショートコード／用語</a><a href="#in-progress">現在作成中</a></nav>
+<section id="types"><h2>無線通信の種類について</h2>
+<h3>① 双方向通信</h3><p>双方向通信とは、上記のように両者が無線を行うことをさします。一般的な無線通信はこれです。</p>
+<blockquote><p>アルファ、こちらブラボー送れ<br>ブラボー、こちらアルファ。感明良好。送れ</p></blockquote>
+<h3>② 単報送信（一方向送信）</h3><p>単報送信（一方向送信）とは、返答を一切待たずに通信を終了させる形式を指します。</p>
+<blockquote><p>CP、こちらブラボー。これよりシアトルへ転進する。終わり<br>ブラボー、こちらCP。了解、終わり。←任意</p></blockquote>
+<h3>③ 同報通信（一斉通報）</h3><p>同報通信（一斉通報）とは、不特定多数の味方部隊へ同時に全く同じ情報を送りつける形式です。</p>
+<blockquote><p>オールステーション、こちらCP。作戦実行地域よりN方向より敵機甲中隊が接近中。状況に応じて撤退せよ。応答不要。終わり。</p></blockquote></section>
+<section id="codes"><h2>ショートコード／用語</h2><p>ショートコードとは無線などの軍用略語・隠語のことをさします。用語は……用語です。</p>
+<dl>
+<dt>おくれ（OVER / オーバー）</dt><dd>発言終了、応答求む</dd>
+<dt>おわり（OUT / アウト）</dt><dd>発言終了。通信を切る</dd>
+<dt>応答不要</dt><dd>言葉の通りです</dd>
+<dt>オールステーション（ALL STATIONS）</dt><dd>味方の全部隊への通告、一斉呼び出し</dd>
+<dt>コピー（Copy）</dt><dd>情報を理解した際に言います。</dd>
+<dt>了解（ROGER / ロジャー）</dt><dd>何かを実行する際に言います。<p class="note"><strong>コピーと了解は、二つとも意味は同じですが、使う場面が違います。</strong></p></dd>
+<dt>ウィルコ（Will Comply / ウィルコンプライ）</dt><dd>了解、ただちに実行する</dd>
+<dt>RTB</dt><dd>基地（MOB, FOB）へ帰還（Return To Base）</dd>
+<dt>UNKNOWN（アンノウン）</dt><dd>正体不明</dd>
+<dt>ON STATION（オン・ステーション）</dt><dd>到着、配置についた</dd>
+<dt>IN POSITION（イン・ポジション）</dt><dd>いつでも実行できる／配置についたため準備完了</dd>
+<dt>VISUAL（ビジュアル）</dt><dd>視認</dd>
+<dt>BLIND（ブラインド）</dt><dd>一時的に視認できなくなった／一時的に見失った</dd>
+<dt>LOST（ロスト）</dt><dd>完全に視認できなくなった／見失った</dd>
+<dt>CONTACT（コンタクト）</dt><dd>敵影視認</dd>
+<dt>ENGAGE（エンゲージ）</dt><dd>攻撃命令（反撃など）</dd>
+<dt>ENGAGING（エンゲージング）</dt><dd>攻撃開始（先制攻撃など）</dd>
+<dt>TAKING FIRE（テーキング・ファイア）</dt><dd>銃撃を受けている</dd>
+<dt>WEAPONS HOLD（ウェポン・ホールド）</dt><dd>絶対的な射撃の禁止（身の危険を感じた場合を除く）</dd>
+<dt>WEAPONS TIGHT（ウェポン・タイト）</dt><dd>Unknownの識別完了まで射撃禁止</dd>
+<dt>WEAPON FREE（ウェポン・フリー）</dt><dd>自由射撃</dd>
+</dl></section>
+<section id="in-progress"><h2>-現在作成中-</h2></section>
+<footer>ASTG｜無線通信マニュアル ／ BRM5向け座学資料</footer>
+</main></body></html>
