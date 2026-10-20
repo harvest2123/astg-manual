@@ -9,7 +9,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 
-from flask import Flask, redirect, request, session, render_template_string
+from flask import Flask, redirect, request, session, render_template_string, send_file
 
 ROOT = Path(__file__).resolve().parent
 
@@ -77,6 +77,10 @@ def create_app(overrides=None):
     @app.get("/index.html")
     def home():
         return (ROOT / "index.html").read_text(encoding="utf-8")
+
+    @app.get("/command/organization.png")
+    def organization_image():
+        return send_file(ROOT / "command" / "organization.png", mimetype="image/png")
 
     @app.get("/<section>/", strict_slashes=False)
     @app.get("/<section>/index.html")
